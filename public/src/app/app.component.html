@@ -1,0 +1,34 @@
+<h1>Restful Tasks</h1>
+<div>
+  <h3>All the Tasks:</h3>
+  <button (click)="onButtonClick()">Get All</button>
+  <ul>
+    <li *ngFor="let t of tasks">{{t.title}}<button (click)="onButtonClickParam(t._id)">Show</button><button (click)="showEditForm(t._id)">Edit</button><button (click)="onDeleteForm(t._id)">Delete</button>
+    </li>
+  </ul>
+  <h3>Single</h3>
+  <p>{{single.title}}</p>
+
+  <!-- form -->
+  <h3>Create New Task</h3>
+  <form (submit)="onSubmit()">
+    <label for="ti">Title: </label>
+    <input id="ti" type="text" name="title" [(ngModel)]="newTask.title" />
+    <label for="d">description: </label>
+    <input id="d" type="text" name="description" [(ngModel)]="newTask.description" />
+    <input type="submit" value="Create Task" />
+  </form>
+
+  <h3>Edit Task</h3>
+<div *ngIf="isHidden == false">
+  <form (submit)="onEditSubmit()">
+    <label for="ti">Title: </label>
+    <input id="ti" type="text" name="title" [(ngModel)]="editTask.title" />
+    <label for="d">description: </label>
+    <input id="d" type="text" name="description" [(ngModel)]="editTask.description" />
+    <input type="submit" value="Create Task" />
+  </form>
+</div>
+
+
+</div>
